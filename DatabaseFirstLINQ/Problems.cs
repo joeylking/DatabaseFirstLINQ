@@ -15,9 +15,9 @@ namespace DatabaseFirstLINQ
         }
         public void RunLINQQueries()
         {
-            ProblemOne();
+            //ProblemOne();
             //ProblemTwo();
-            //ProblemThree();
+            ProblemThree();
             //ProblemFour();
             //ProblemFive();
             //ProblemSix();
@@ -37,37 +37,45 @@ namespace DatabaseFirstLINQ
             //ProblemTwenty();
         }
 
-        // <><><><><><><><> R Actions (Read) <><><><><><><><><>
-        private void ProblemOne()
-        {
-            // Write a LINQ query that returns the number of users in the Users table.
-            // HINT: .ToList().Count
-            var users = _context.Users;
-            var numberOfUser = users.ToList().Count;
+        //// <><><><><><><><> R Actions (Read) <><><><><><><><><>
+        //private void ProblemOne()
+        //{
+        //    //Write a LINQ query that returns the number of users in the Users table.
+        //    //HINT: .ToList().Count
+        //    var users = _context.Users;
+        //    var numberOfUser = users.ToList().Count;
 
 
-            Console.WriteLine($"users: {numberOfUser}");
+        //    Console.WriteLine($"users: {numberOfUser}");
 
 
-        }
+        //}
 
-        private void ProblemTwo()
-        {
-            // Write a LINQ query that retrieves the users from the User tables then print each user's email to the console.
-            var users = _context.Users;
+        //private void ProblemTwo()
+        //{
+        //    // Write a LINQ query that retrieves the users from the User tables then print each user's email to the console.
+        //    var users = _context.Users;
 
-            foreach (User user in users)
-            {
-                Console.WriteLine(user.Email);
-            }
+        //    foreach (User user in users)
+        //    {
+        //        Console.WriteLine(user.Email);
+        //    }
 
-        }
+        //}
 
         private void ProblemThree()
         {
             // Write a LINQ query that gets each product where the products price is greater than $150.
             // Then print the name and price of each product from the above query to the console.
+            var products = _context.Products;
+            var productsValue = products.Where(p => p.Price > 150);
+            foreach (var product in productsValue) 
+            { 
+            
+                Console.WriteLine(product.Name + " " + product.Price);
+            }
 
+            
         }
 
         private void ProblemFour()
